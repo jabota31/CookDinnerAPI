@@ -3,5 +3,15 @@
   "version": "1.0.0",
   "main": "index.js",
   "author": "Markgabe <mgabriel@id.uff.br>",
-  "license": "MIT"
+  "repository": "https://github.com/Markgabe/CookDinnerAPI.git",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "scripts": {
+    "dev": "nodemon src/index.js"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  }
 }
