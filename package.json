@@ -1,0 +1,7 @@
+{
+  "name": "CookDinnerAPI",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Markgabe <mgabriel@id.uff.br>",
+  "license": "MIT"
+}
