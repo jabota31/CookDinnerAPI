@@ -4,12 +4,13 @@ const morgan = require("morgan");
 
 const app = express();
 
+const router = require("./routes");
+
 app.use(cors());
 
-app.use(morgan("tiny"))
+app.use(morgan("dev"));
+app.use(express.json());
 
-app.use("/", (req, res) => {
-    res.json({Mensagem: "Hello World"});
-})
+app.use(router);
 
 app.listen(3000);
