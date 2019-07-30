@@ -1,7 +1,9 @@
+require('dotenv').config()
+
 module.exports = {
-  username: 'root',
-  password: '',
+  username: process.env.DB_USER,
+  password: process.env.DB_PASS,
   database: 'cookdinnerdev',
-  host: '127.0.0.1',
+  host: process.env.DB_HOST,
   dialect: 'mysql',
 }
