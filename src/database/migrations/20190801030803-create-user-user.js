@@ -1,39 +1,25 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('recipe', {
+    return queryInterface.createTable('user_user', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      name: {
-        allowNull: false,
-        type: Sequelize.STRING
-      },
-      description: {
-        allowNull: false,
-        type: Sequelize.STRING
-      },
-      userId: {
+      followedId: {
         type: Sequelize.INTEGER,
-        allowNull: false,
         references: {
           model: 'User',
           key: 'id'
         }
       },
-      time: {
-        type: Sequelize.INTEGER
-      },
-      portion: {
-        type: Sequelize.STRING
-      },
-      grade: {
-        type: Sequelize.FLOAT
-      },
-      vegan: {
-        type: Sequelize.BOOLEAN
+      userId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'User',
+          key: 'id'
+        }
       },
       createdAt: {
         allowNull: false,
@@ -46,6 +32,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('recipe');
+    return queryInterface.dropTable('user_user');
   }
 };
