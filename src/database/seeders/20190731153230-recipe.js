@@ -2,18 +2,18 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.bulkInsert('Recipes', [
+    return queryInterface.bulkInsert('recipe', [
       {
         name: 'Arroz',
         description: 'Arrozin bolado',
         createdAt: new Date(),
         updatedAt: new Date(),
-        userId: 1
+        userId: 7
       }
     ], {});
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.bulkDelete('Recipes', null, {});
+    return queryInterface.bulkDelete('recipe', null, {});
   }
 };

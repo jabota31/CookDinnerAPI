@@ -7,10 +7,11 @@ module.exports = (sequelize, DataTypes) => {
     birthday: DataTypes.DATE,
     gender: DataTypes.STRING,
     profile_picture: DataTypes.STRING
-  }, {});
+  }, {freezeTableName: true});
+  
   User.associate = function(models) {
-    User.hasMany(models.Recipes, {as: 'favorite_recipes'});
-    User.hasMany(models.Recipes, {as: 'recipes'});
+    //User.hasMany(models.Recipe, {as: 'favorite_recipes'});
+    User.hasMany(models.Recipe, {as: 'recipes'});
     User.belongsToMany(models.User, {through: 'user_user', as: 'followers'});
     User.belongsToMany(models.User, {through: 'user_user', as: 'follows'});
     User.hasOne(models.Picture);

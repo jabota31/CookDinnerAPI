@@ -3,10 +3,7 @@ module.exports = (sequelize, DataTypes) => {
     amount: DataTypes.STRING,
     ingredient_id: DataTypes.INTEGER,
     recipe_id: DataTypes.INTEGER
-  }, {});
-  Ingredient_recipe.associate = function(models) {
-    Ingredient_recipe.hasMany(models.Ingredient, {as: 'ingredients'});
-    Ingredient_recipe.hasMany(models.Recipe, {as: 'recipes'});
-  };
+  }, {freezeTableName: true});
+
   return Ingredient_recipe;
 };

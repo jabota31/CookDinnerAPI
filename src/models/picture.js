@@ -3,7 +3,8 @@ module.exports = (sequelize, DataTypes) => {
     path: DataTypes.STRING,
     userId: DataTypes.INTEGER,
     recipeId: DataTypes.INTEGER
-  }, {});
+  }, {freezeTableName: true});
+
   Picture.associate = function(models) {
     Picture.belongsTo(models.User, {foreignKey: 'userId', as: 'user'});
     Picture.belongsTo(models.Recipe, {foreignKey: 'recipeId', as: 'recipe'});

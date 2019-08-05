@@ -7,7 +7,8 @@ module.exports = (sequelize, DataTypes) => {
     portion: DataTypes.STRING,
     grade: DataTypes.FLOAT,
     vegan: DataTypes.BOOLEAN
-  }, {});
+  }, {freezeTableName: true});
+
   Recipe.associate = function(models) {
     Recipe.belongsTo(models.User, {foreignKey: 'userId', as: 'user'});
     Recipe.hasMany(models.Picture, {as: 'pictures'});
@@ -16,7 +17,6 @@ module.exports = (sequelize, DataTypes) => {
     Recipe.hasMany(models.Ingredient, {as: 'ingredients'});
     Recipe.hasMany(models.Tag, {as: 'tags'});
     Recipe.hasOne(models.Picture, {as: 'picture'});
-
   };
   return Recipe;
 };

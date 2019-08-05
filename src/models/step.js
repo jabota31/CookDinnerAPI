@@ -3,7 +3,8 @@ module.exports = (sequelize, DataTypes) => {
     number: DataTypes.INTEGER,
     description: DataTypes.TEXT,
     recipeId: DataTypes.INTEGER
-  }, {});
+  }, {freezeTableName: true});
+  
   Step.associate = function(models) {
     Step.belongsTo(models.Recipe, {foreignKey: 'recipeId', as: 'recipe'});
   };
