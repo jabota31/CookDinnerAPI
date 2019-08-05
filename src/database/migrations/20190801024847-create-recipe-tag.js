@@ -8,6 +8,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       recipeId: {
+        allowNull: false,
         type: Sequelize.INTEGER,
         references: {
           model: 'Recipe',
@@ -15,6 +16,7 @@ module.exports = {
         }
       },
       tagId: {
+        allowNull: false,
         type: Sequelize.INTEGER,
         references: {
           model: 'Tag',
