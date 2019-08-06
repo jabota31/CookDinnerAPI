@@ -1,33 +1,29 @@
-export default {
+module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('user', {
+    return queryInterface.createTable('ingredient_recipe', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      username: {
+      ingredient_id: {
         allowNull: false,
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Ingredient',
+          key: 'id'
+        }
       },
-      name: {
-        type: Sequelize.STRING
-      },
-      email: {
-        type: Sequelize.STRING
-      },
-      password: {
+      recipe_id: {
         allowNull: false,
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Recipe',
+          key: 'id'
+        }
       },
-      birthday: {
-       type: Sequelize.DATE
-      },
-      gender: {
-        type: Sequelize.STRING
-      },
-      profile_picture: {
+      amount: {
         type: Sequelize.STRING
       },
       createdAt: {
@@ -41,6 +37,6 @@ export default {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('user')
+    return queryInterface.dropTable('ingredient_recipe');
   }
-}
+};
