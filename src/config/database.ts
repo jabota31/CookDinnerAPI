@@ -1,8 +1,6 @@
-import dotenv from 'dotenv'
+require('dotenv').config()
 
-dotenv.config()
-
-export default {
+module.exports = {
 	username: process.env.DB_USER,
 	password: process.env.DB_PASS,
 	database: 'cookdinnerdev',
