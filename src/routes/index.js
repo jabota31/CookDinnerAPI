@@ -1,14 +1,14 @@
-require('dotenv').config()
-const express = require("express");
-const controller = require("../controllers");
-const jwt = require('jsonwebtoken');
-const jwt_guard = require('../controllers/jwt_auth.js');
+import dotenv from 'dotenv'
+import jwt from 'jsonwebtoken'
+import jwt_guard from '../controllers/jwt_auth'
 const user = require('../models').User;
 const recipe = require('../models').Recipe;
 
-const router = express.Router();
+dotenv.config()
 
-router.get("/", controller.helloWorld);
+const router = express.Router()
+
+router.get('/', controller.helloWorld)
 
 router.post('/login', async (req, res) => {
     const requiredUser = await user.findOne({
@@ -20,8 +20,8 @@ router.post('/login', async (req, res) => {
       const id = requiredUser.id; //user id for later usages
       var token = jwt.sign({ id }, process.env.JWT_SECRET, {
         expiresIn: 300 // expires in 5min
-      });
-      res.status(200).json({ auth: true, token: token });
+      })
+      res.status(200).json({ auth: true, token: token })
     }
     
     res.status(400).json({
@@ -30,7 +30,7 @@ router.post('/login', async (req, res) => {
   })
 
   router.get('/all', (req, res) => {
-    const all = user.findAll().then(result => res.json(result));
+    const all = user.findAll().then(result => res.json(result))
   })
   router.get('/allrecipes', (req, res) => {
     const all = user.findAll({
@@ -38,7 +38,7 @@ router.post('/login', async (req, res) => {
         model: recipe,
         as: "recipes"
       }]
-    }).then(result => res.json(result));
+    }).then(result => res.json(result))
   })
 
-module.exports = router;
+export default router

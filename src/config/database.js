@@ -1,9 +1,11 @@
-require('dotenv').config()
+import dotenv from 'dotenv'
 
-module.exports = {
-  username: process.env.DB_USER,
-  password: process.env.DB_PASS,
-  database: 'cookdinnerdev',
-  host: process.env.DB_HOST,
-  dialect: 'mysql',
+dotenv.config()
+
+export default {
+	username: process.env.DB_USER,
+	password: process.env.DB_PASS,
+	database: 'cookdinnerdev',
+	host: process.env.DB_HOST,
+	dialect: 'mysql'
 }
