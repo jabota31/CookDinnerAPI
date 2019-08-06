@@ -1,7 +1,7 @@
 module.exports = {
-    helloWorld(req, res){
-        res.json({
-            Mensagem: "Hello World!"
-        })
-    }
+	helloWorld (req, res) {
+		res.json({
+			Mensagem: 'Hello World!'
+		})
+	}
 }

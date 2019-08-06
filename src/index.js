@@ -1,17 +1,17 @@
-const express = require("express");
-const cors = require("cors");
-const morgan = require("morgan");
-const router = require("./routes");
+const express = require('express')
+const cors = require('cors')
+const morgan = require('morgan')
+const router = require('./routes')
 
-const app = express();
+const app = express()
 
 
-app.use(cors());
+app.use(cors())
 
-app.use(morgan("dev"));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(morgan('dev'))
+app.use(express.json())
+app.use(express.urlencoded({ extended: false }))
 
-app.use(router);
+app.use(router)
 
-app.listen(3000);
+app.listen(3000)
